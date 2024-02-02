@@ -18,7 +18,7 @@ class Game {
         }
 
         this.gameSpecs = {
-            score : 0,
+            score: 0,
             rows: 20,
             cols: 20,
         }
@@ -92,7 +92,7 @@ class Game {
         }
     }
 
-    generateFood(){
+    generateFood() {
         this.apple = new Apple(this.board, this.gameSize, this.cellSize, this.gameSpecs)
     }
 
@@ -111,14 +111,14 @@ class Game {
             snakeRect.right > appleRect.left &&
             snakeRect.top < appleRect.bottom &&
             snakeRect.bottom > appleRect.top
-          ) {
+        ) {
             this.eatApple()
             return true;
-          } else {
+        } else {
             return false;
-          }
-     
-      }
+        }
+
+    }
 
 
     eatApple() {
@@ -131,14 +131,14 @@ class Game {
     }
 
 
-    repositionApple(){
-        if (this.frameCounter == 20){
+    repositionApple() {
+        if (this.frameCounter == 20) {
             this.apple.food.remove()
             this.generateFood()
             this.frameCounter = 0
         }
     }
-    startGameLoop() {   
+    startGameLoop() {
         setInterval(() => {
             this.snake.draw()
             this.didCollide()

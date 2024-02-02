@@ -8,7 +8,7 @@ class Snake {
         this.boardHeight = gameSpecs.rows
         this.totalScore = document.querySelector('#highScore')
         this.score = gameSpecs.score
-        
+
         this.body = [
             { x: 3, y: 1 }, { x: 2, y: 1 }, { x: 1, y: 1 }
             //{ x: 3, y: 1 }
@@ -26,13 +26,13 @@ class Snake {
         const snakeSegments = document.querySelectorAll(".snake-segment")
         snakeSegments.forEach(segment => segment.remove())
     }
-        
+
     move() {
         this.body = this.body.map((currentSegment, index) => {
             if (index === 0) {
                 switch (this.direction) {
                     case 'up':
-                        return { x: currentSegment.x, y: Math.max(currentSegment.y - 1, 0)};
+                        return { x: currentSegment.x, y: Math.max(currentSegment.y - 1, 0) };
                     case 'down':
                         return { x: currentSegment.x, y: Math.min(currentSegment.y + 1, this.boardHeight - 1) };
                     case 'right':
@@ -47,7 +47,7 @@ class Snake {
             }
         });
     }
-        
+
     updatePosition() {
         this.body.forEach(coordinates => {
 
@@ -84,15 +84,15 @@ class Snake {
 
     checkCollision() {
         const head = this.body[0]
-        if (head.x <= 0 || head.x >= (this.boardWidth - 1)|| head.y <= 0 || head.y >= (this.boardHeight - 1)) {
+        if (head.x <= 0 || head.x >= (this.boardWidth - 1) || head.y <= 0 || head.y >= (this.boardHeight - 1)) {
             this.totalScore.innerHTML = `Your Score was: ${this.game.gameSpecs.score}`
             this.gameOver()
         }
     }
 
-    grow(){
-        const snakeTail = this.body[this.body.length -1]
-        const newSegment ={
+    grow() {
+        const snakeTail = this.body[this.body.length - 1]
+        const newSegment = {
             x: snakeTail.x,
             y: snakeTail.y
         }
@@ -100,15 +100,15 @@ class Snake {
     }
 
 
-    gameOver(){
+    gameOver() {
         this.cleanSnake()
-        gameView.style.display = 'none' 
-        menuView.style.display = 'none' 
+        gameView.style.display = 'none'
+        menuView.style.display = 'none'
         endView.style.display = 'flex'
         this.body = [
             { x: 3, y: 1 }, { x: 2, y: 1 }, { x: 1, y: 1 }
         ]
 
     }
-    
+
 }

@@ -20,19 +20,16 @@ class Apple {
         this.food.style.height = `${this.cellSize.height}px`;
         this.food.style.top = `${foodPosition.y}px`;
         this.food.style.left = `${foodPosition.x}px`;
-    
+
         this.board.appendChild(this.food);
     }
 
-    remove(){
+    remove() {
         this.board.removeChild(this.food)
     }
 
-    moveElements(){
+    moveElements() {
         this.snake = new Snake(this.foodPosition)
     }
-    // SITUAR LA MANZANA EN UNA CASILLA RANDOM - check
-    // DETECTAR COLISIÓN ENTRE SNAKE Y MANZANA
-    // SACAR LA MANZANA DEL DOM Y SUMAR PUNTOS
-    // CREAR OTRA MANZANA RANDOM  - ESTO SERÍA CREAR UNA NEW APPLE DESDE EL GAME
+
 }
